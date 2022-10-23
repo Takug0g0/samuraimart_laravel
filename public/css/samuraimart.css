@@ -79,16 +79,8 @@ caption {
   letter-spacing: 0.08px;
 }
 
-label {
-  font-family: YuGo;
-  font-size: 14px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #191919;
-}
+label 
+
 .samuraimart-login-input {
     border-radius: 2px;
     border: solid 1px #b2b2b2;
@@ -105,7 +97,6 @@ label {
     letter-spacing: normal;
     color: #000000;
 }
-
 .samuraimart-require-input-label {
     border-radius: 1px;
     background-color: #e2001b;
@@ -144,4 +135,28 @@ label {
     line-height: normal;
     letter-spacing: normal;
     color: #0fbe9f;
+}
+.samuraimart-header-container {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+.samuraimart-header-search-input {
+    border: solid 1px #e5e5e5;
+}
+
+.samuraimart-header-search-button {
+    background-color: #0fbe9f;
+}
+
+.samuraimart-header-search-icon {
+    color: #ffffff;
+}
+
+.samuraimart-header-fav-icon {
+    color: #191919;
+}
+
+.samuraimart-header-shoppingcart-icon {
+    color: #ffffff;
 }
