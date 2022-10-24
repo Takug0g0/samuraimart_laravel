@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\product;
+use App\Product;
     use App\Category;
 use Illuminate\Http\Request;
 
@@ -57,7 +57,9 @@ class ProductController extends Controller
      */
     public function show(product $product)
     {
-       return view('products.show', compact('product'));
+    $reviews = $product->reviews()->get();
+ 
+         return view('products.show', compact('product', 'reviews'));
     }
 
     /**
