@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'WebController@index');
+    
 Route::get('users/carts', 'CartController@index')->name('carts.index');
 
 Route::post('users/carts', 'CartController@store')->name('carts.store');
