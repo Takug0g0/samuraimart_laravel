@@ -81,20 +81,14 @@ class ProductController extends Controller
         $product->description = $request->input('description');
         $product->price = $request->input('price');
         $product->category_id = $request->input('category_id');
+        if ($request->input('recommend') == 'on') {
+            $product->recommend_flag = true;
+        } else {
+            $product->recommend_flag = false;
+        }
         $product->save();
         
         return redirect()->route('dashboard.products.index');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -134,9 +128,14 @@ class ProductController extends Controller
         $product->description = $request->input('description');
         $product->price = $request->input('price');
         $product->category_id = $request->input('category_id');
+        if ($request->input('recommend') == 'on') {
+            $product->recommend_flag = true;
+        }else {
+            $product->recommend_flag = false;
+        }
         $product->update();
         
-        return view()->route('dashboard.product.index');
+        return redirect()->route('dashboard.products.index');
     }
 
     /**
