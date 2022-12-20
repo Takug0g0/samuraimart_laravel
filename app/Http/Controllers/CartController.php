@@ -20,7 +20,11 @@ class CartController extends Controller
         $total = 0;
         
         foreach ($cart as $c) {
+            if($c->options->carriage) {
+                 $total += ($c->qty * ($c->price + env('CARRIAGE')));
+            }else{
             $total += $c->qty * $c->price;
+            }
         }
         
         return view('carts.index', compact('cart', 'total'));
@@ -42,6 +46,9 @@ class CartController extends Controller
                 'qty' =>  $request->qty,
                 'price' => $request->price,
                 'weight' => $request->weight,
+                'options' => [
+                    'carriage' => $request->carriage
+                    ]
             ]
         );
         
@@ -108,7 +115,7 @@ class CartController extends Controller
         }else{
             $price_total +=$c->qty * $c->price;
         }
-        $qty_tatal += $c->qty;
+        $qty_total += $c->qty;
     }
     
     Cart::instance(Auth::user()->id)->store($count);

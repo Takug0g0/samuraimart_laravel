@@ -33,7 +33,7 @@ Route::delete('users/carts', 'CartController@destroy')->name('carts.destroy');
  Route::get('products/{product}/favorite', 'ProductController@favorite')->name('products.favorite');
 
  Route::get('products', 'ProductController@index')->name('products.index');
- Route::get('products/{product}', 'ProductController@show')->name('product.show');
+ Route::get('products/{product}', 'ProductController@show')->name('products.show');
 
 Auth::routes(['verify' => true]);
 

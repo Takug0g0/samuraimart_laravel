@@ -54,7 +54,7 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         
-        return view('dashboard.products.crate', compact('categories'));
+        return view('dashboard.products.create', compact('categories'));
     }
 
     /**
@@ -85,6 +85,11 @@ class ProductController extends Controller
             $product->recommend_flag = true;
         } else {
             $product->recommend_flag = false;
+        }
+        if ($request->input('carriage') == 'on') {
+             $product->carriage_flag = true;
+        } else {
+            $product->carriage_flag = false;
         }
         $product->save();
         
@@ -133,7 +138,13 @@ class ProductController extends Controller
         }else {
             $product->recommend_flag = false;
         }
+         if ($request->input('carriage') == 'on') {
+             $product->carriage_flag = true;
+        } else {
+            $product->carriage_flag = false;
+        }
         $product->update();
+        
         
         return redirect()->route('dashboard.products.index');
     }
